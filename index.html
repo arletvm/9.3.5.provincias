@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #provincia{
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    <form action="pais-provincia.php">
+        <select name="pais" id="pais" onchange="mostrarProvincias()">
+            <option value="elija">Elija destino..</option>
+            <option value="espana">España</option>
+            <option value="fuera">Fuera de España</option>
+        </select>
+
+        <select name="provincia" id="provincia">
+            <option value="elijaProv">Elija provincia..</option>
+            <option value="ab">Albacete</option>
+            <option value="to">Toledo</option>
+            <option value="cu">Cuenca</option>
+        </select>
+
+        <input type="submit" value="Guardar">
+    </form>
+
+    <script>
+        function mostrarProvincias(){
+            let pais = document.getElementById("pais").value;
+            let provincia = document.getElementById("provincia")
+            if (pais == "espana"){
+                provincia.style.visibility = "visible"
+            }
+            else{
+                provincia.style.visibility = "hidden"
+            }
+        }
+
+    </script>
+
+</body>
+</html>
