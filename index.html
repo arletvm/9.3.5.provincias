@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #provincia{
+        #caja-provincias{
             visibility: hidden; /*Lo esconde pero el espacio estará ahí*/
+        }
+        #otro-pais{
+            visibility: hidden;
         }
     </style>
 
@@ -16,18 +19,33 @@
     <form action="pais-provincia.php">
         <label for="pais">
             <select name="pais" id="pais" onchange="mostrarProv()">
-                <option value="elija">Elija destino...</option>
+                <option value="elija">Elije destino...</option>
                 <option value="es">España</option>
                 <option value="fuera">Fuera de España</option>
             </select>
         </label>
 
-        <select name="provincias" id="provincias">
-            <option value="elijaProv">Elija provincia..</option>
-            <option value="ab">Albacete</option>
-            <option value="as">Alcazar de San Juan</option>
-            <option value="sc">Socuellamos</option>
-        </select>
+        <div id="caja-provincias">
+            <label for="provincias">
+                <select name="provincias" id="provincias">
+                    <option value="elijaProv">Elije provincia..</option>
+                    <option value="ab">Albacete</option>
+                    <option value="as">Alcazar de San Juan</option>
+                    <option value="sc">Socuellamos</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="caja-paises">
+            <label for="otro-pais">
+                <select name="otro-pais" id="otro-pais">
+                    <option value="elije-otro-pais">Elije país..</option>
+                    <option value="mx">Mexico</option>
+                    <option value="ch">China</option>
+                    <option value="al">Alemania</option>
+                </select>
+            </label>
+        </div>
 
         <input type="submit" value="Guardar">
     </form>
@@ -36,11 +54,14 @@
         function mostrarProv(){
             let pais = document.getElementById("pais").value;
             let provincias = document.getElementById("provincias")
+            let otropais=document.getElementById("otro-pais");
+
             if (pais == "es"){
-                provincias.style.visibility = "visible" /*Se muestra*/
+                provincias.style.visibility = "visible"; /*Se muestra*/
             }
-            else{
-                provincias.style.visibility = "hidden" /*No se muestra*/
+            else if(pais="fuera"){
+                provincias.style.visibility = "hidden"; /*No se muestra*/
+                otropais.style.visibility="visible";
             }
         }
 
