@@ -6,38 +6,41 @@
     <title>Document</title>
     <style>
         #provincia{
-            visibility: hidden;
+            visibility: hidden; /*Lo esconde pero el espacio estará ahí*/
         }
     </style>
 
 </head>
 <body>
+    <h1>Datos de envío</h1>
     <form action="pais-provincia.php">
-        <select name="pais" id="pais" onchange="mostrarProvincias()">
-            <option value="elija">Elija destino..</option>
-            <option value="espana">España</option>
-            <option value="fuera">Fuera de España</option>
-        </select>
+        <label for="pais">
+            <select name="pais" id="pais" onchange="mostrarProv()">
+                <option value="elija">Elija destino...</option>
+                <option value="es">España</option>
+                <option value="fuera">Fuera de España</option>
+            </select>
+        </label>
 
-        <select name="provincia" id="provincia">
+        <select name="provincias" id="provincias">
             <option value="elijaProv">Elija provincia..</option>
             <option value="ab">Albacete</option>
-            <option value="to">Toledo</option>
-            <option value="cu">Cuenca</option>
+            <option value="as">Alcazar de San Juan</option>
+            <option value="sc">Socuellamos</option>
         </select>
 
         <input type="submit" value="Guardar">
     </form>
 
     <script>
-        function mostrarProvincias(){
+        function mostrarProv(){
             let pais = document.getElementById("pais").value;
-            let provincia = document.getElementById("provincia")
-            if (pais == "espana"){
-                provincia.style.visibility = "visible"
+            let provincias = document.getElementById("provincias")
+            if (pais == "es"){
+                provincias.style.visibility = "visible" /*Se muestra*/
             }
             else{
-                provincia.style.visibility = "hidden"
+                provincias.style.visibility = "hidden" /*No se muestra*/
             }
         }
 
